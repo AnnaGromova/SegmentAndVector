@@ -2,11 +2,23 @@ import java.util.Arrays;
 
 public class Vector3D implements Vector {
 
-	private double[] vector;
+	private double[] vector;	
 	
 	public Vector3D(double[] vector) {
 		this.vector = new double[3];
 		System.arraycopy(vector, 0, this.vector, 0, 3);
+	}
+	
+	public double getX() {
+		return this.vector[0]; 
+	}
+	
+	public double getY() {
+		return this.vector[1]; 
+	}
+	
+	public double getZ() {
+		return this.vector[2]; 
 	}
 	
 	@Override
