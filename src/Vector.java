@@ -1,8 +1,8 @@
 interface Vector {
 	
-	int dimension();      		 // размерность
+	int dimension();
 	 
-	double getComponent(int i);  // возвращает компоненту вектора
+	double getComponent(int i);
 	
 	double scalar(Vector v);
 	
@@ -14,4 +14,5 @@ interface Vector {
 	
 	Vector sub(Vector v);
 
+	double[] printVector();
 }
