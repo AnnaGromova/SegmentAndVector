@@ -69,7 +69,9 @@ public class Vector2D implements Vector{
 
 	@Override
 	public double[] printVector() {
-		return this.vector;
+		var copyVector = new double[this.dimension()];
+		System.arraycopy(this.vector, 0, copyVector, 0, this.dimension());
+		return copyVector;
 	}
 	
 	@Override
