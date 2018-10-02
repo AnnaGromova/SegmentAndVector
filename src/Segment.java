@@ -1,17 +1,17 @@
 public class Segment {
 
-	Vector start;
-	Vector end;
+	VectorInterface start;
+	VectorInterface end;
 	
-	public Segment(Vector start, Vector end) {
+	public Segment(VectorInterface start, VectorInterface end) {
 		this.start = start;
 		this.end = end;
 	}
 	
-	public Vector getStart() {
+	public VectorInterface getStart() {
 		return this.start;
 	};
-	public Vector getEnd() {
+	public VectorInterface getEnd() {
 		return this.end;
 	};
 	
@@ -20,7 +20,7 @@ public class Segment {
 		return vectorFromSegment.len();
 	};
 	
-	public double distanceTo(Vector point) {
+	public double distanceTo(VectorInterface point) {
 		var vectorStartToPoint = this.getStart().sub(point);
 		var vectorEndToPoint = this.getEnd().sub(point);
 		var vectorFromSegment = this.getStart().sub(this.getEnd());

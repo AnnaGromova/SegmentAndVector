@@ -1,44 +1,24 @@
-import java.util.Arrays;
-
-public class Vector2D implements Vector{
-
-	private double[] vector;
+public class Vector2D extends AbstractVector {
 	
 	public Vector2D(double[] vector) {
-		this.vector = new double[2];
-		System.arraycopy(vector, 0, this.vector, 0, 2);
+		super(vector);
+		this.vector = new double[this.dimension()];
+		System.arraycopy(vector, 0, this.vector, 0, this.dimension());
 	}
 	
-	@Override
+	public double getX() {
+		return this.vector[0]; 
+	}
+	
+	public double getY() {
+		return this.vector[1]; 
+	}
+	
 	public int dimension() {
 		return 2;
 	}
 
-	@Override
-	public double getComponent(int i) {
-		return this.vector[i];
-	}
-
-	@Override
-	public double scalar(Vector anotherVector) {
-		double scalar = 0;
-		for (int i = 0; i < this.dimension(); i++) {
-		scalar += this.getComponent(i) * anotherVector.getComponent(i);
-		}
-		return scalar;
-	}
-
-	@Override
-	public double len() {
-		double SquareOfLen = 0;
-		for (double component : this.vector) {
-			SquareOfLen += Math.pow(component, 2);
-		}
-		return Math.sqrt(SquareOfLen);
-	}
-
-	@Override
-	public Vector multiply(double factor) {
+	public VectorInterface multiply(double factor) {
 		double[] newVectorAsArray = new double[this.dimension()];
 		for (int i = 0; i < this.dimension(); i++) { ;
 			newVectorAsArray[i] = this.getComponent(i) * factor;
@@ -47,8 +27,7 @@ public class Vector2D implements Vector{
 		return newVector;
 	}
 
-	@Override
-	public Vector add(Vector v) {
+	public VectorInterface add(VectorInterface v) {
 		var newVectorAsArray = new double[this.dimension()];
 		for (int i = 0; i < this.dimension(); i++) {
 			newVectorAsArray[i] = this.getComponent(i) + v.getComponent(i);
@@ -57,8 +36,7 @@ public class Vector2D implements Vector{
 		return newVector;
 	}
 
-	@Override
-	public Vector sub(Vector v) {
+	public VectorInterface sub(VectorInterface v) {
 		var newVectorAsArray = new double[this.dimension()];
 		for (int i = 0; i < this.dimension(); i++) {
 			newVectorAsArray[i] = this.getComponent(i) - v.getComponent(i);
@@ -67,17 +45,5 @@ public class Vector2D implements Vector{
 		return newVector;
 	}
 
-	@Override
-	public double[] printVector() {
-		var copyVector = new double[this.dimension()];
-		System.arraycopy(this.vector, 0, copyVector, 0, this.dimension());
-		return copyVector;
-	}
 	
-	@Override
-	public boolean equals(Object v) {
-		if (Arrays.equals(((Vector) v).printVector(), this.printVector()))
-			return true;
-		return false;
-	}
 }

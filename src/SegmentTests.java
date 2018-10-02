@@ -6,14 +6,14 @@ class SegmentTests {
 	@Test
 	void testSegmentGetStart() {
 		var segment = new Segment(new Vector2D(new double[] { 1, 2 }), new Vector2D(new double[] { 4, -2 }));
-		Vector expectedStart = new Vector2D(new double[] { 1, 2 });
+		VectorInterface expectedStart = new Vector2D(new double[] { 1, 2 });
 		Assert.assertEquals(expectedStart, segment.getStart());
 	}
 	
 	@Test
 	void testSegmentGetEnd() {
 		var segment = new Segment(new Vector2D(new double[] { 1, 2 }), new Vector2D(new double[] { 4, -2 }));
-		Vector expectedEnd = new Vector2D(new double[] { 4, -2 });
+		VectorInterface expectedEnd = new Vector2D(new double[] { 4, -2 });
 		Assert.assertEquals( expectedEnd, segment.getEnd());
 	}
 
